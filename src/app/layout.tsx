@@ -11,7 +11,7 @@ const urbanist = Urbanist({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const GA_MEASUREMENT_ID = "G-64JEG58KCY";
+const GA_MEASUREMENT_ID = "G-64JEGS6KCY";
 
 export const metadata: Metadata = {
   title: "NogicOS - The AI that works where you work",
