@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script";
 import "./globals.css";
 
 const urbanist = Urbanist({
@@ -10,8 +9,6 @@ const urbanist = Urbanist({
   variable: "--font-urbanist",
   weight: ["300", "400", "500", "600", "700", "800"],
 });
-
-const GA_MEASUREMENT_ID = "G-64JEGS6KCY";
 
 export const metadata: Metadata = {
   title: "NogicOS - The AI that works where you work",
@@ -54,21 +51,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={urbanist.variable}>
-      <head>
-        {/* Google Analytics */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
-          `}
-        </Script>
-      </head>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

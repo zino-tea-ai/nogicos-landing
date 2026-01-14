@@ -39,4 +39,3 @@ export interface Benefit {
 
 // Waitlist Form Status
 export type FormStatus = "idle" | "loading" | "success" | "error";
-

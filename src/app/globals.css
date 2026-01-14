@@ -1273,6 +1273,13 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
    Responsive - Small Screens (Mobile)
    ======================================== */
 
+@media (max-width: 900px) {
+  /* Comparison grid - 2 columns on tablet */
+  .problem-section .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
 @media (max-width: 768px) {
   .nav { padding: 0 24px; }
   .nav-links { display: none; }
@@ -1296,6 +1303,11 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
   .capabilities-grid,
   .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Comparison grid - 1 column on mobile */
+  .problem-section .grid {
+    grid-template-columns: 1fr !important;
   }
   
   .stats-bar {

@@ -1,42 +1,38 @@
-import { problemContent } from "@/data/content";
 import { FadeIn, StaggerList } from "@/components/motion";
+import { content } from "@/data/content";
 
 export function Problem() {
-  const { eyebrow, title, titleHighlight, titleSuffix, description, problems, quote } =
-    problemContent;
-
   return (
-    <section id="problem" className="problem-section">
-      <FadeIn className="section-header" amount={0.5}>
-        <p className="section-eyebrow">{eyebrow}</p>
-        <h2>
-          {title} <span className="highlight">{titleHighlight}</span>
-          <br />
-          {titleSuffix}
-        </h2>
-        <p className="section-description">{description}</p>
+    <section className="problem-section">
+      <FadeIn>
+        <div className="section-header">
+          <p className="section-eyebrow">{content.problem.eyebrow}</p>
+          <h2>{content.problem.title}</h2>
+        </div>
       </FadeIn>
 
-      <StaggerList className="problem-flow" staggerDelay={0.1}>
-        {problems.map((problem, i) => (
+      <StaggerList className="problem-flow" staggerDelay={0.15}>
+        {content.problem.items.map((item, i) => (
           <div key={i} className="problem-item">
             <div className="problem-step">
               <span className="step-number">{i + 1}</span>
-              <p className="step-before">{problem.before}</p>
+              <span className="step-before">{item.before}</span>
             </div>
             <div className="problem-pain">
-              <p>{problem.pain}</p>
+              <p>{item.pain}</p>
             </div>
             <div className="problem-result">
-              <p>{problem.result}</p>
+              <p>{item.result}</p>
             </div>
           </div>
         ))}
       </StaggerList>
 
-      <FadeIn delay={0.3} duration={0.6} amount={0.5} className="problem-quote">
-        <blockquote>{quote.text}</blockquote>
-        <cite>{quote.cite}</cite>
+      <FadeIn delay={0.4}>
+        <div className="problem-quote">
+          <blockquote>&quot;{content.problem.quote.text}&quot;</blockquote>
+          <cite>— {content.problem.quote.author}</cite>
+        </div>
       </FadeIn>
     </section>
   );

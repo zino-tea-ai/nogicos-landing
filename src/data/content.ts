@@ -1,209 +1,191 @@
 // ================================
-// NogicOS Landing Page Content
-// 所有文案集中管理，方便修改和国际化
+// Centralized Content Management
 // ================================
 
-export const siteConfig = {
-  name: "NogicOS",
-  tagline: "The AI that works where you work",
-  description:
-    "Browser. Files. Desktop. One AI, complete context. NogicOS is the first AI that works across your browser, files, and desktop as one unified workspace.",
-  url: "https://nogicos.com",
-} as const;
-
-// Hero Section
-export const heroContent = {
-  eyebrow: "For knowledge workers tired of",
-  painPoints: [
-    "copy-pasting context to ChatGPT",
-    "uploading files one by one",
-    "describing what's on your screen",
-    "being AI's human clipboard",
-    "explaining the same thing twice",
-  ],
-  subtitle:
-    "NogicOS is an AI that actually sees your screen, reads your files, and works in your browser.",
-  emphasis: "No more copying. No more explaining.",
-  stats: {
-    before: { value: "30s", label: "First task" },
-    after: { value: "<1s", label: "Same task later" },
-  },
-  cta: {
-    primary: "Request Early Access",
-    note: "Only 50 spots left",
-    subNote: "in private beta",
-  },
-  trust: {
-    label: "Trusted by teams at",
-    logos: ["YC Founders", "Stanford", "Remote Teams"],
-  },
-} as const;
-
-// Problem Section
-export const problemContent = {
-  eyebrow: "The Problem",
-  title: "Today's AI tools are",
-  titleHighlight: "blind",
-  titleSuffix: "to where you actually work",
-  description:
-    "You're not bad at using AI. AI is bad at seeing your work. Every tool makes you the middleman—copying, pasting, explaining, waiting.",
-  problems: [
-    {
-      before: "You open ChatGPT",
-      pain: "Then spend 5 minutes copying text, uploading files, and explaining what you're looking at",
-      result: "By the time you get a response, you forgot what you asked",
-    },
-    {
-      before: "You try Claude for documents",
-      pain: "Upload files one by one. Wait. Describe the context. Wait. Clarify again",
-      result: "A simple task takes 15 minutes of back-and-forth",
-    },
-    {
-      before: "You use Cursor for code",
-      pain: "But when you need to reference browser docs or design files? Switch apps, copy, paste, repeat",
-      result: "Your workflow is constantly interrupted",
-    },
-  ],
-  quote: {
-    text: "I spend more time explaining context to AI than actually getting work done.",
-    cite: "— Every knowledge worker, probably",
-  },
-} as const;
-
-// Solution Section
-export const solutionContent = {
-  eyebrow: "The Solution",
-  title: "AI that finally sees",
-  titleHighlight: "your whole workspace",
-  description:
-    "No more copying. No more explaining. Just tell NogicOS what you need, and watch it work across your browser, files, and desktop.",
-  capabilities: [
-    {
-      icon: "◎",
-      title: "See your browser",
-      description:
-        "NogicOS navigates websites, clicks buttons, fills forms, and extracts data. No extensions needed.",
-      example: '"Research competitors on LinkedIn and save their profiles"',
-    },
-    {
-      icon: "▢",
-      title: "Read your files",
-      description:
-        "Access documents, spreadsheets, and local data without uploading anything. Your files stay on your machine.",
-      example: '"Summarize all PDFs in my Downloads folder"',
-    },
-    {
-      icon: "◇",
-      title: "Understand your screen",
-      description:
-        "Take screenshots, understand what's displayed, and help you with any application you're using.",
-      example: '"What error is showing in this Figma file?"',
-    },
-    {
-      icon: "→",
-      title: "Get faster over time",
-      description:
-        "First task: 30 seconds. Same task again? 1 second. NogicOS learns your workflows and speeds up.",
-      example: "Your repeated tasks become instant",
-    },
-  ],
-  comparison: {
-    title: "How NogicOS compares",
-    headers: ["Capability", "ChatGPT", "Claude", "Cursor", "NogicOS"],
-    rows: [
-      ["See your browser", "no", "no", "no", "yes"],
-      ["Read local files", "no", "partial:Upload only", "partial:Code only", "yes"],
-      ["Take actions", "no", "no", "partial:Code only", "yes"],
-      ["Learn & speed up", "no", "no", "no", "yes"],
-      ["Privacy-first", "no:Cloud", "no:Cloud", "partial:Mixed", "yes:Local"],
+export const content = {
+  // Hero Section
+  hero: {
+    eyebrow: "For knowledge workers tired of",
+    painPoints: [
+      "copy-pasting context to ChatGPT",
+      "uploading files one by one",
+      "describing what's on your screen",
+      "being AI's human clipboard",
+      "explaining the same thing twice",
     ],
+    subtitle:
+      "NogicOS is an AI that actually sees your screen, reads your files, and works in your browser. **No more copying. No more explaining.**",
+    stats: {
+      before: { value: "30s", label: "First task" },
+      after: { value: "<1s", label: "Same task later" },
+    },
+    cta: {
+      button: "Request Early Access",
+      note: "Only 50 spots left in private beta",
+    },
+    trust: {
+      label: "Trusted by teams at",
+      items: ["YC Founders", "Stanford", "Remote Teams"],
+    },
+    demo: {
+      userMessage: "Fill out this vendor form with our company info",
+      actions: [
+        { icon: "◎", label: "Reading browser content..." },
+        { icon: "▢", label: "Found company_info.md" },
+        { icon: "◇", label: "Auto-filling 12 fields..." },
+      ],
+      complete: "Done in 28 seconds ✓",
+      caption: "Real NogicOS interaction",
+    },
   },
-} as const;
 
-// Social Proof Section
-export const socialProofContent = {
-  stats: [
-    { value: "87%", label: "less context-switching" },
-    { value: "30x", label: "faster repeated tasks" },
-    { value: "100%", label: "local & private" },
-  ],
-  testimonials: {
-    eyebrow: "Early Access Feedback",
-    title: "What beta testers are saying",
+  // Problem Section
+  problem: {
+    eyebrow: "The Problem",
+    title: "AI tools today make you do the work",
     items: [
       {
-        quote:
-          "I used to spend 20 minutes setting up context. Now I just tell NogicOS what I need.",
-        name: "Sarah K.",
-        role: "Product Manager",
-        company: "YC W24",
+        before: "You see a form",
+        pain: "Copy form fields → paste to ChatGPT → copy response → paste back → repeat for each field",
+        result: "5 minutes of manual copy-paste",
       },
       {
-        quote:
-          "The learning feature is insane. Tasks that took minutes now happen in seconds.",
-        name: "Mike R.",
-        role: "Founder",
-        company: "Stealth Startup",
+        before: "You need context",
+        pain: "Switch tabs → find file → select content → copy → switch back → paste → explain what it is",
+        result: "Context scattered across apps",
       },
       {
-        quote: "Finally, an AI that doesn't make me feel like a human clipboard.",
-        name: "Alex T.",
-        role: "Content Lead",
-        company: "Remote Team",
+        before: "You use a tool",
+        pain: "App needs access → OAuth flow → limited permissions → can't see your actual screen",
+        result: "Half-solution at best",
       },
     ],
+    quote: {
+      text: "I spend more time feeding context to AI than actually getting work done.",
+      author: "Every knowledge worker, 2025",
+    },
   },
-  privacy: {
-    icon: "◇",
-    title: "Your data never leaves your machine",
-    description: "NogicOS runs locally. No cloud uploads. No training on your data.",
-  },
-} as const;
 
-// Final CTA Section
-export const ctaContent = {
-  eyebrow: "Limited Early Access",
-  title: "Stop being AI's human clipboard",
-  description:
-    "Join the waitlist and be first to experience AI that actually sees your work.",
-  benefits: [
-    { icon: "✦", text: "Free during beta" },
-    { icon: "◎", text: "Priority onboarding" },
-    { icon: "◇", text: "Direct feedback channel" },
-  ],
-  form: {
-    placeholder: "Enter your email",
-    button: "Get Early Access",
-    loading: "Submitting...",
-    success: "You're on the list!",
-    error: "Something went wrong. Please try again.",
-  },
-  waitlistCount: {
-    count: 47,
-    suffix: "spots remaining this week",
-  },
-} as const;
-
-// Footer
-export const footerContent = {
-  brand: {
+  // Solution Section
+  solution: {
+    eyebrow: "The Solution",
+    title: "One AI that sees everything you see",
     description:
-      "The first AI that truly sees and understands your entire digital workspace.",
-  },
-  waitlist: {
-    label: "Join the waitlist",
-    placeholder: "Your email address",
-    button: "Start Now",
-  },
-  links: {
-    social: [
-      { label: "Twitter", href: "#" },
-      { label: "GitHub", href: "#" },
+      "NogicOS runs locally and has native access to your browser, files, and desktop. No extensions, no uploads, no explaining.",
+    capabilities: [
+      {
+        icon: "◎",
+        title: "Browser",
+        description:
+          "Sees and controls any web page. Fills forms, extracts data, navigates flows.",
+        example: "Fill this application with my resume",
+      },
+      {
+        icon: "▢",
+        title: "Files",
+        description:
+          "Reads your local files directly. No uploading, no size limits, instant access.",
+        example: "Find the contract from last month",
+      },
+      {
+        icon: "◇",
+        title: "Desktop",
+        description:
+          "Interacts with any application. Screenshots, clicks, keyboard input.",
+        example: "Export this report as PDF",
+      },
+      {
+        icon: "⚡",
+        title: "Memory",
+        description:
+          "Learns from every interaction. Gets faster and more accurate over time.",
+        example: "Do this like last time",
+      },
     ],
-    legal: [
-      { label: "Privacy", href: "#" },
-      { label: "Terms", href: "#" },
-    ],
   },
-} as const;
 
+  // Comparison Section
+  comparison: {
+    title: "How NogicOS compares",
+    competitors: ["ChatGPT", "Claude", "Copilot", "NogicOS"],
+    features: [
+      { feature: "Sees your browser", values: ["✗", "✗", "Limited", "✓"] },
+      { feature: "Reads local files", values: ["Upload", "Upload", "✗", "✓"] },
+      { feature: "Controls desktop", values: ["✗", "✗", "✗", "✓"] },
+      { feature: "Works offline", values: ["✗", "✗", "✗", "✓"] },
+      { feature: "Learns from you", values: ["✗", "✗", "✗", "✓"] },
+      { feature: "Complete context", values: ["✗", "✗", "✗", "✓"] },
+    ],
+  },
+
+  // Social Proof Section
+  socialProof: {
+    stats: [
+      { value: "87%", label: "Time saved on repetitive tasks" },
+      { value: "<1s", label: "Average response time" },
+      { value: "100%", label: "Local & private" },
+    ],
+    testimonials: {
+      title: "What early users say",
+      items: [
+        {
+          quote:
+            "I filled out a 47-field vendor application in 30 seconds. This is the AI assistant I've been waiting for.",
+          name: "Sarah Chen",
+          role: "Operations Lead",
+          company: "Series A Startup",
+        },
+        {
+          quote:
+            "Finally, an AI that doesn't make me explain my entire workflow every time. It just knows.",
+          name: "Marcus Williams",
+          role: "Product Manager",
+          company: "Remote-first Company",
+        },
+        {
+          quote:
+            "The fact that it runs locally and I don't have to upload sensitive docs is huge for compliance.",
+          name: "Jennifer Park",
+          role: "Legal Counsel",
+          company: "Enterprise SaaS",
+        },
+      ],
+    },
+    privacy: {
+      icon: "🔒",
+      title: "100% Local & Private",
+      description:
+        "Your data never leaves your machine. NogicOS runs entirely on your device with no cloud processing.",
+    },
+  },
+
+  // Final CTA Section
+  finalCTA: {
+    scarcity: {
+      count: "Only 50 spots",
+      text: "left in private beta",
+    },
+    title: "Stop being AI's secretary",
+    description:
+      "Join the waitlist for early access. Be among the first to experience AI that actually works where you work.",
+    form: {
+      placeholder: "your@email.com",
+      button: "Get Early Access",
+    },
+    benefits: [
+      { icon: "✓", text: "Free during beta" },
+      { icon: "✓", text: "Priority support" },
+      { icon: "✓", text: "Shape the product" },
+    ],
+  },
+
+  // Footer
+  footer: {
+    links: [
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+      { label: "Contact", href: "mailto:hello@nogicos.com" },
+    ],
+    copyright: "© 2025 NogicOS. All rights reserved.",
+  },
+};
