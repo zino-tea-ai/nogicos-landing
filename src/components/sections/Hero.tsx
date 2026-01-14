@@ -2,37 +2,30 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect, useRef } from "react";
-import { content } from "@/data/content";
+
+// 核心差异化 - 统一三层上下文
+const differentiators = [
+  "the first AI to see your browser, files, and desktop",
+  "complete context without copy-paste",
+  "direct action, not just suggestions",
+  "local-first, your data stays private",
+];
 
 export function Hero() {
   const [currentPain, setCurrentPain] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [demoPhase, setDemoPhase] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Pain text rotation
   useEffect(() => {
     if (!isPaused) {
       intervalRef.current = setInterval(() => {
-        setCurrentPain((prev) => (prev + 1) % content.hero.painPoints.length);
-      }, 5000);
+        setCurrentPain((prev) => (prev + 1) % differentiators.length);
+      }, 5000); // 5秒切换
     }
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, [isPaused]);
-
-  // Demo animation
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setDemoPhase((p) => (p < 4 ? p + 1 : 0));
-    }, 2000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleCTAClick = () => {
-    document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section className="hero">
@@ -42,9 +35,10 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        <p className="hero-eyebrow">{content.hero.eyebrow}</p>
-
-        <h1
+        {/* 痛点驱动的标题 */}
+        <p className="hero-eyebrow">The AI that works where you work</p>
+        
+        <h1 
           className="hero-title"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -58,57 +52,64 @@ export function Hero() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              {content.hero.painPoints[currentPain]}
+              {differentiators[currentPain]}
             </motion.span>
           </AnimatePresence>
         </h1>
 
         <p className="hero-subtitle">
-          {content.hero.subtitle.split("**").map((part, i) =>
-            i % 2 === 1 ? <strong key={i}>{part}</strong> : part
-          )}
+          NogicOS is the first AI that sees your browser, files, and desktop as one.{" "}
+          <strong>Complete context. Direct action. No middleman.</strong>
         </p>
 
+        {/* 三大核心能力 */}
         <div className="hero-stats">
           <div className="stat">
-            <span className="stat-number">{content.hero.stats.before.value}</span>
-            <span className="stat-label">{content.hero.stats.before.label}</span>
+            <span className="stat-icon">◎</span>
+            <span className="stat-label">Browser</span>
           </div>
-          <div className="stat-arrow">→</div>
+          <div className="stat-plus">+</div>
           <div className="stat">
-            <span className="stat-number">{content.hero.stats.after.value}</span>
-            <span className="stat-label">{content.hero.stats.after.label}</span>
+            <span className="stat-icon">▢</span>
+            <span className="stat-label">Files</span>
+          </div>
+          <div className="stat-plus">+</div>
+          <div className="stat">
+            <span className="stat-icon">◇</span>
+            <span className="stat-label">Desktop</span>
           </div>
         </div>
 
+        {/* CTA 区域 - 加紧迫感 */}
         <div className="hero-cta">
           <motion.button
             className="btn btn-primary"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={handleCTAClick}
+            onClick={() => document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" })}
           >
-            {content.hero.cta.button}
+            Request Early Access
           </motion.button>
           <p className="hero-cta-note">
-            <span className="pulse-dot" />
-            <strong>{content.hero.cta.note}</strong>
+            <span className="pulse-dot" /> 
+            <strong>Only 50 spots left</strong> in private beta
           </p>
         </div>
 
+        {/* 信任徽章 */}
         <div className="hero-trust">
-          <span>{content.hero.trust.label}</span>
+          <span>Trusted by teams at</span>
           <div className="trust-logos">
-            {content.hero.trust.items.map((item, i) => (
-              <span key={item}>
-                {item}
-                {i < content.hero.trust.items.length - 1 && <span style={{ margin: "0 8px" }}>•</span>}
-              </span>
-            ))}
+            <span>YC Founders</span>
+            <span>•</span>
+            <span>Stanford</span>
+            <span>•</span>
+            <span>Remote Teams</span>
           </div>
         </div>
       </motion.div>
 
+      {/* Demo 预览 - 更真实 */}
       <motion.div
         className="hero-demo"
         initial={{ opacity: 0, y: 60 }}
@@ -121,57 +122,39 @@ export function Hero() {
               <span /><span /><span />
             </div>
             <div className="demo-url">
-              <span className="demo-url-icon">◉</span>
-              <span>nogicos.local</span>
+              <span className="demo-url-icon">◎</span>
+              <span>nogicos://workspace</span>
             </div>
           </div>
           <div className="demo-content">
+            {/* 模拟对话 - 更真实的场景 */}
             <div className="demo-message user">
-              <p>&quot;{content.hero.demo.userMessage}&quot;</p>
+              <p>"Find all competitor pricing pages and summarize them in a doc"</p>
             </div>
-
-            {demoPhase >= 1 && (
-              <motion.div
-                className="demo-thinking"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
+            <div className="demo-message ai">
+              <div className="demo-thinking">
                 <span className="thinking-dot" />
-                <span>NogicOS is working...</span>
-              </motion.div>
-            )}
-
-            <div className="demo-actions">
-              {content.hero.demo.actions.map((action, i) => (
-                <motion.div
-                  key={action.label}
-                  className={`action ${demoPhase > i + 1 ? "done" : ""}`}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{
-                    opacity: demoPhase >= i + 1 ? 1 : 0.3,
-                    y: 0,
-                  }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <span className="action-icon">{action.icon}</span>
-                  <span>{action.label}</span>
-                  {demoPhase > i + 1 && <span className="action-check">✓</span>}
-                </motion.div>
-              ))}
+                <span>Working on it...</span>
+              </div>
+              <div className="demo-actions">
+                <div className="action done">
+                  <span className="action-check">✓</span>
+                  <span>Found 8 competitor sites</span>
+                </div>
+                <div className="action done">
+                  <span className="action-check">✓</span>
+                  <span>Extracted pricing data</span>
+                </div>
+                <div className="action done">
+                  <span className="action-check">✓</span>
+                  <span>Created comparison.md</span>
+                </div>
+              </div>
+              <p className="demo-complete">Done in 23 seconds</p>
             </div>
-
-            {demoPhase >= 4 && (
-              <motion.p
-                className="demo-complete"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
-                {content.hero.demo.complete}
-              </motion.p>
-            )}
           </div>
         </div>
-        <p className="demo-caption">{content.hero.demo.caption}</p>
+        <p className="demo-caption">Real workflow. No copy-paste. No uploads.</p>
       </motion.div>
     </section>
   );
