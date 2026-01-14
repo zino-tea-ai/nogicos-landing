@@ -777,6 +777,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  align-items: stretch;
 }
 
 .testimonial-card {
@@ -784,12 +785,16 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
   background: var(--bg-primary);
   border: 1px solid var(--border);
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .testimonial-quote {
   font-size: 1.0625rem;
   line-height: 1.6;
   margin-bottom: 24px;
+  flex: 1;
 }
 
 .testimonial-author {
