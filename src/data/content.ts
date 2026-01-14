@@ -12,6 +12,37 @@ export const siteConfig = {
   url: "https://nogicos.com",
 } as const;
 
+// Problem Section
+export const problemContent = {
+  eyebrow: "The Problem",
+  title: "AI tools today are",
+  titleHighlight: "blind",
+  titleSuffix: "to your actual work",
+  description:
+    "Every AI interaction today follows the same frustrating pattern:",
+  problems: [
+    {
+      before: "You open a document",
+      pain: "AI can't see it",
+      result: "You copy-paste the entire thing",
+    },
+    {
+      before: "You browse a website",
+      pain: "AI can't navigate it",
+      result: "You screenshot and describe",
+    },
+    {
+      before: "You work across apps",
+      pain: "AI can't switch context",
+      result: "You become the human clipboard",
+    },
+  ],
+  quote: {
+    text: "I spend more time explaining my screen to AI than actually getting work done.",
+    cite: "— Every knowledge worker in 2025",
+  },
+} as const;
+
 // Solution Section - 已移除"越用越快/学习"概念
 export const solutionContent = {
   eyebrow: "The Solution",
