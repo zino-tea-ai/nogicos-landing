@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import "./ProductDemo.css";
 
 // 真实的 NogicOS API 调用展示
 const apiCalls = [
@@ -12,34 +13,6 @@ const apiCalls = [
   { cmd: "window_screenshot(hwnd=0x12A8F)", result: "Screenshot captured" },
   { cmd: "window_click(x=432, y=280)", result: "PostMessage sent" },
 ];
-
-// 自定义光标组件
-function AnimatedCursor({ x, y, clicking }: { x: number; y: number; clicking: boolean }) {
-  return (
-    <motion.div
-      className="animated-cursor"
-      animate={{ x, y, scale: clicking ? 0.8 : 1 }}
-      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-    >
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M5.5 3.5L18.5 12L12 13.5L9 20.5L5.5 3.5Z"
-          fill="rgba(255,255,255,0.9)"
-          stroke="rgba(255,255,255,0.3)"
-          strokeWidth="1"
-        />
-      </svg>
-      {clicking && (
-        <motion.div
-          className="click-ripple"
-          initial={{ scale: 0, opacity: 0.8 }}
-          animate={{ scale: 2, opacity: 0 }}
-          transition={{ duration: 0.4 }}
-        />
-      )}
-    </motion.div>
-  );
-}
 
 // 窗口容器组件 - 玻璃拟态
 function GlassWindow({
@@ -197,7 +170,7 @@ function FilesContent({ phase }: { phase: number }) {
               <span className="line-number">2</span>
               {"  "}
               <span className="code-keyword">return</span>{" "}
-              <span className="code-string">"2025-01-14"</span>;
+              <span className="code-string">&quot;2025-01-14&quot;</span>;
             </div>
             <div className="code-line">
               <span className="line-number">3</span>
@@ -262,7 +235,7 @@ function DesktopContent({ phase }: { phase: number }) {
 
 // 主组件
 export function ProductDemo() {
-  const [activeWindow, setActiveWindow] = useState(0); // 0: Browser, 1: Files, 2: Desktop
+  const [activeWindow, setActiveWindow] = useState(0);
   const [phase, setPhase] = useState(0);
   const [currentLog, setCurrentLog] = useState(0);
 
@@ -271,7 +244,6 @@ export function ProductDemo() {
     const phaseTimer = setInterval(() => {
       setPhase((p) => {
         if (p >= 6) {
-          // 切换到下一个窗口
           setActiveWindow((w) => (w + 1) % 3);
           return 0;
         }
@@ -292,12 +264,9 @@ export function ProductDemo() {
 
   return (
     <div className="product-demo-container">
-      {/* 噪点纹理覆盖 */}
       <div className="noise-overlay" />
 
-      {/* 主演示区域 */}
       <div className="demo-viewport">
-        {/* 三个窗口 */}
         <div className="windows-stack">
           <GlassWindow
             title="Browser"
@@ -327,7 +296,6 @@ export function ProductDemo() {
           </GlassWindow>
         </div>
 
-        {/* 操作日志 */}
         <div className="action-log">
           <div className="log-header">
             <span className="log-icon">›</span>
@@ -351,7 +319,6 @@ export function ProductDemo() {
         </div>
       </div>
 
-      {/* 能力指示器 */}
       <div className="capability-indicators">
         {["Browser", "Files", "Desktop"].map((cap, i) => (
           <button
