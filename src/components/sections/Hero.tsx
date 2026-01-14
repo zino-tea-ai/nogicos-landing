@@ -2,8 +2,8 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect, useRef } from "react";
+import { ProductDemo } from "@/components/animations";
 
-// 用户每天经历的痛苦场景 - 更情感化
 const painPoints = [
   "copy-pasting context to ChatGPT",
   "uploading files one by one",
@@ -21,7 +21,7 @@ export function Hero() {
     if (!isPaused) {
       intervalRef.current = setInterval(() => {
         setCurrentPain((prev) => (prev + 1) % painPoints.length);
-      }, 5000); // 5秒切换
+      }, 5000);
     }
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -36,7 +36,6 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        {/* 痛点驱动的标题 */}
         <p className="hero-eyebrow">For knowledge workers tired of</p>
         
         <h1 
@@ -63,20 +62,6 @@ export function Hero() {
           and works in your browser. <strong>No more copying. No more explaining.</strong>
         </p>
 
-        {/* 数字证明 - 更具体 */}
-        <div className="hero-stats">
-          <div className="stat">
-            <span className="stat-number">30s</span>
-            <span className="stat-label">First task</span>
-          </div>
-          <div className="stat-arrow">→</div>
-          <div className="stat">
-            <span className="stat-number">&lt;1s</span>
-            <span className="stat-label">Same task later</span>
-          </div>
-        </div>
-
-        {/* CTA 区域 - 加紧迫感 */}
         <div className="hero-cta">
           <motion.button
             className="btn btn-primary"
@@ -92,7 +77,6 @@ export function Hero() {
           </p>
         </div>
 
-        {/* 信任徽章 */}
         <div className="hero-trust">
           <span>Trusted by teams at</span>
           <div className="trust-logos">
@@ -105,52 +89,14 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* Demo 预览 - 更真实 */}
       <motion.div
         className="hero-demo"
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="demo-window">
-          <div className="demo-chrome">
-            <div className="demo-dots">
-              <span /><span /><span />
-            </div>
-            <div className="demo-url">
-              <span className="demo-url-icon">◎</span>
-              <span>nogicos://workspace</span>
-            </div>
-          </div>
-          <div className="demo-content">
-            {/* 模拟对话 - 更真实的场景 */}
-            <div className="demo-message user">
-              <p>"Find all competitor pricing pages and summarize them in a doc"</p>
-            </div>
-            <div className="demo-message ai">
-              <div className="demo-thinking">
-                <span className="thinking-dot" />
-                <span>Working on it...</span>
-              </div>
-              <div className="demo-actions">
-                <div className="action done">
-                  <span className="action-check">✓</span>
-                  <span>Found 8 competitor sites</span>
-                </div>
-                <div className="action done">
-                  <span className="action-check">✓</span>
-                  <span>Extracted pricing data</span>
-                </div>
-                <div className="action done">
-                  <span className="action-check">✓</span>
-                  <span>Created comparison.md</span>
-                </div>
-              </div>
-              <p className="demo-complete">Done in 23 seconds</p>
-            </div>
-          </div>
-        </div>
-        <p className="demo-caption">Real workflow. No copy-paste. No uploads.</p>
+        <ProductDemo />
+        <p className="demo-caption">Browser. Files. Desktop. One AI sees it all.</p>
       </motion.div>
     </section>
   );
