@@ -58,10 +58,7 @@ export function Comparison() {
         </p>
       </motion.div>
 
-      <div
-        className="grid gap-6"
-        style={{ gridTemplateColumns: "repeat(4, 1fr)" }}
-      >
+      <div className="comparison-grid">
         {competitors.map((comp, i) => (
           <motion.div
             key={comp.name}

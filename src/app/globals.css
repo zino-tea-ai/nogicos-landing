@@ -521,6 +521,12 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
   margin-bottom: 64px;
 }
 
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
 .problem-item {
   padding: 32px;
   background: var(--bg-primary);
@@ -1114,163 +1120,368 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
 }
 
 @media (min-width: 1921px) {
-  /* Increase font sizes for 4K screens */
-  h1 { font-size: clamp(3rem, 5vw, 5rem); }
-  h2 { font-size: clamp(2.5rem, 3.5vw, 4rem); }
-  h3 { font-size: clamp(1.5rem, 2vw, 2rem); }
+  /* Significantly increase font sizes for 4K screens */
+  h1 { font-size: clamp(4rem, 6vw, 7rem); }
+  h2 { font-size: clamp(3rem, 4vw, 5rem); }
+  h3 { font-size: clamp(1.75rem, 2.5vw, 2.5rem); }
   
-  body { font-size: 1.125rem; }
+  body { font-size: 1.375rem; }
   
   .nav {
-    padding: 0 80px;
-    height: 88px;
+    padding: 0 120px;
+    height: 100px;
   }
   
-  .nav-logo { font-size: 1.375rem; }
-  .nav-link { font-size: 1rem; }
-  .nav-links { gap: 48px; }
+  .nav-logo { 
+    font-size: 1.625rem; 
+    gap: 16px;
+  }
+  .nav-logo img {
+    width: 36px;
+    height: 36px;
+  }
+  .nav-link { font-size: 1.25rem; }
+  .nav-links { gap: 64px; }
   
   .btn {
-    padding: 16px 32px;
-    font-size: 1.0625rem;
+    padding: 20px 40px;
+    font-size: 1.25rem;
+    border-radius: 8px;
   }
   
   .hero {
-    padding: 160px 80px 120px;
-    max-width: 2000px;
-    gap: 160px;
+    padding: 180px 120px 140px;
+    max-width: 2800px;
+    gap: 200px;
   }
   
   .hero-content {
-    max-width: 800px;
+    max-width: 1000px;
   }
   
   .hero-demo {
-    min-width: 700px;
+    min-width: 800px;
   }
   
-  .hero-eyebrow { font-size: 1.25rem; }
-  .hero-subtitle { font-size: 1.375rem; }
-  .hero-title { min-height: 160px; }
+  .hero-eyebrow { font-size: 1.5rem; }
+  .hero-subtitle { 
+    font-size: 1.75rem; 
+    line-height: 1.8;
+  }
+  .hero-title { min-height: 200px; }
   
-  .stat-number { font-size: 2.5rem; }
-  .stat-label { font-size: 1rem; }
+  .hero-stats {
+    padding: 32px;
+    gap: 40px;
+  }
+  
+  .stat-number { font-size: 3.5rem; }
+  .stat-label { font-size: 1.25rem; }
+  .stat-arrow { font-size: 2rem; }
   
   .demo-window {
-    min-width: 600px;
+    min-width: 750px;
+    border-radius: 16px;
   }
   
-  .demo-message.user p { font-size: 1.125rem; }
-  .action { font-size: 1rem; padding: 16px 20px; }
+  .demo-chrome {
+    padding: 16px 24px;
+  }
+  
+  .demo-dots span {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .demo-content {
+    padding: 32px;
+  }
+  
+  .demo-message.user p { 
+    font-size: 1.375rem; 
+    padding: 16px 24px;
+  }
+  
+  .action { 
+    font-size: 1.25rem; 
+    padding: 20px 24px;
+    gap: 16px;
+  }
+  
+  .demo-complete { font-size: 1.125rem; }
+  .demo-caption { font-size: 1rem; }
   
   .problem-section,
   .solution-section,
   .social-proof-section,
   .final-cta-section {
-    padding: 160px 80px;
+    padding: 200px 120px;
   }
   
   .problem-section > *,
   .solution-section > *,
   .social-proof-section > *,
   .final-cta-section > * {
-    max-width: 1800px;
+    max-width: 2400px;
     margin-left: auto;
     margin-right: auto;
   }
   
   .section-header {
-    max-width: 1000px;
+    max-width: 1200px;
+    margin-bottom: 100px;
+  }
+  
+  .section-eyebrow {
+    font-size: 1rem;
+    margin-bottom: 24px;
   }
   
   .section-description {
-    font-size: 1.375rem;
-    max-width: 800px;
+    font-size: 1.625rem;
+    max-width: 1000px;
   }
   
   .problem-flow {
-    gap: 32px;
+    gap: 48px;
   }
   
   .problem-item {
-    padding: 40px;
+    padding: 56px;
+    border-radius: 12px;
+  }
+  
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .step-before { font-size: 1.25rem; }
+  .problem-pain p { font-size: 1.125rem; }
+  .problem-result p { font-size: 1rem; }
+  
+  .problem-quote {
+    padding: 72px;
+    border-radius: 12px;
   }
   
   .problem-quote blockquote {
-    font-size: 1.875rem;
+    font-size: 2.25rem;
   }
   
+  .problem-quote cite { font-size: 1.125rem; }
+  
   .capabilities-grid {
-    gap: 32px;
+    gap: 48px;
   }
   
   .capability-card {
-    padding: 40px;
+    padding: 56px;
+    border-radius: 12px;
   }
   
-  .capability-card p { font-size: 1.0625rem; }
-  .capability-example code { font-size: 0.9375rem; }
+  .capability-icon {
+    font-size: 3rem;
+    margin-bottom: 24px;
+  }
+  
+  .capability-card h3 { margin-bottom: 16px; }
+  .capability-card p { 
+    font-size: 1.25rem; 
+    margin-bottom: 24px;
+  }
+  
+  .capability-example {
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .capability-example code { font-size: 1.125rem; }
   
   .comparison-table {
-    padding: 64px;
-    max-width: 1400px;
+    padding: 80px;
+    max-width: 1800px;
     margin: 0 auto;
+    border-radius: 16px;
+  }
+  
+  .comparison-table h3 {
+    margin-bottom: 48px;
   }
   
   .comparison-table th,
   .comparison-table td {
-    padding: 20px 32px;
-    font-size: 1rem;
+    padding: 28px 40px;
+    font-size: 1.25rem;
   }
+  
+  .comparison-table td:first-child { font-size: 1.25rem; }
   
   .stats-bar {
-    gap: 120px;
-    padding: 64px;
-    max-width: 1200px;
-    margin: 0 auto 100px;
+    gap: 160px;
+    padding: 80px;
+    max-width: 1600px;
+    margin: 0 auto 120px;
+    border-radius: 16px;
   }
   
-  .stat-item .stat-value { font-size: 4rem; }
-  .stat-item .stat-label { font-size: 1.125rem; }
+  .stat-item .stat-value { font-size: 5rem; }
+  .stat-item .stat-label { font-size: 1.375rem; }
+  
+  .testimonials-container {
+    margin-bottom: 120px;
+  }
+  
+  .testimonials-container .section-header {
+    margin-bottom: 72px;
+  }
   
   .testimonials-grid {
-    gap: 32px;
-    max-width: 1600px;
+    gap: 48px;
+    max-width: 2200px;
     margin: 0 auto;
   }
   
-  .testimonial-card { padding: 40px; }
-  .testimonial-quote { font-size: 1.25rem; }
-  
-  .cta-content { max-width: 720px; }
-  .cta-description { font-size: 1.375rem; }
-  
-  .cta-form {
-    max-width: 600px;
+  .testimonial-card { 
+    padding: 56px; 
+    border-radius: 12px;
   }
   
-  .cta-form input {
-    padding: 18px 24px;
-    font-size: 1.0625rem;
+  .testimonial-quote { 
+    font-size: 1.5rem; 
+    margin-bottom: 32px;
+  }
+  
+  .avatar {
+    width: 56px;
+    height: 56px;
+    font-size: 1.125rem;
+  }
+  
+  .author-name { font-size: 1.25rem; }
+  .author-role { font-size: 1rem; }
+  
+  .privacy-badge {
+    padding: 32px 48px;
+    gap: 24px;
+    max-width: 600px;
+    border-radius: 12px;
+  }
+  
+  .privacy-icon { font-size: 2rem; }
+  .privacy-title { font-size: 1.25rem; }
+  .privacy-desc { font-size: 1rem; }
+  
+  .cta-content { max-width: 900px; }
+  
+  .cta-scarcity {
+    font-size: 1.125rem;
+    padding: 12px 24px;
+    margin-bottom: 48px;
+  }
+  
+  .cta-description { 
+    font-size: 1.625rem; 
+    margin-bottom: 56px;
+  }
+  
+  .cta-form,
+  .waitlist-form {
+    max-width: 720px;
+    gap: 16px;
+  }
+  
+  .cta-form input,
+  .waitlist-input {
+    padding: 24px 32px;
+    font-size: 1.25rem;
+    border-radius: 8px;
+  }
+  
+  .cta-benefits {
+    gap: 40px;
+    margin-top: 48px;
+  }
+  
+  .benefit {
+    font-size: 1rem;
+    gap: 12px;
   }
   
   .footer {
-    padding: 64px 80px;
+    padding: 80px 120px;
   }
   
   .footer-content {
-    max-width: 1800px;
+    max-width: 2400px;
     margin: 0 auto;
   }
+  
+  .footer-links {
+    gap: 40px;
+  }
+  
+  .footer-link { font-size: 1.125rem; }
+  .footer-copyright { font-size: 1rem; }
 }
 
 /* ========================================
-   Responsive - Medium Screens
+   Responsive - Medium Screens (Tablet)
    ======================================== */
 
 @media (max-width: 1200px) {
   .capabilities-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero {
+    gap: 48px;
+  }
+  
+  .hero-content {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+    justify-self: center;
+  }
+  
+  .hero-demo {
+    justify-self: center;
+    order: -1;
+  }
+  
+  .hero-stats {
+    justify-content: center;
+  }
+  
+  .hero-cta {
+    align-items: center;
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .hero-trust {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .trust-logos {
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
@@ -1279,58 +1490,350 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
    ======================================== */
 
 @media (max-width: 900px) {
-  /* Comparison grid - 2 columns on tablet */
-  .problem-section .grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+  .problem-flow {
+    grid-template-columns: 1fr;
+  }
+  
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .comparison-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .nav { padding: 0 24px; }
-  .nav-links { display: none; }
-  
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 100px 24px 60px;
-    gap: 48px;
+  /* Nav - Mobile */
+  .nav {
+    padding: 0 20px;
+    height: 64px;
   }
   
-  .hero-demo { order: -1; }
+  .nav-links {
+    display: none;
+  }
+  
+  .nav-logo {
+    font-size: 1rem;
+  }
+  
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.875rem;
+  }
+  
+  /* Hero - Mobile */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 88px 20px 48px;
+    gap: 32px;
+    min-height: auto;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    justify-self: center;
+  }
+  
+  .hero-demo {
+    order: -1;
+    justify-self: center;
+  }
+  
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.125rem; }
+  
+  .hero-eyebrow {
+    font-size: 0.875rem;
+  }
+  
+  .hero-title {
+    min-height: 80px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .stat-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .hero-cta {
+    align-items: center;
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+  }
+  
+  .hero-cta-note {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .hero-trust {
+    margin-top: 32px;
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .trust-logos {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  /* Demo Window - Mobile */
+  .demo-window {
+    max-width: 100%;
+  }
+  
+  .demo-content {
+    padding: 16px;
+  }
+  
+  .demo-message.user p {
+    font-size: 0.875rem;
+  }
+  
+  .action {
+    font-size: 0.8125rem;
+    padding: 10px 12px;
+  }
+  
+  /* Sections - Mobile */
+  .problem-section,
+  .solution-section,
+  .social-proof-section,
+  .final-cta-section {
+    padding: 64px 20px;
+  }
+  
+  .section-header {
+    margin-bottom: 40px;
+  }
+  
+  .section-description {
+    font-size: 1rem;
+  }
+  
+  /* Problem - Mobile */
+  .problem-flow {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .problem-item {
+    padding: 20px;
+  }
+  
+  .problem-quote {
+    padding: 24px;
+  }
+  
+  .problem-quote blockquote {
+    font-size: 1.125rem;
+  }
+  
+  /* Capabilities - Mobile */
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .capability-card {
+    padding: 20px;
+  }
+  
+  .capability-icon {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  
+  .capability-card p {
+    font-size: 0.875rem;
+  }
+  
+  .capability-example {
+    padding: 10px;
+  }
+  
+  .capability-example code {
+    font-size: 0.8125rem;
+  }
+  
+  /* Comparison Table - Mobile */
+  .comparison-table {
+    padding: 20px;
+  }
+  
+  .comparison-table h3 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: 10px 8px;
+    font-size: 0.75rem;
+  }
+  
+  .comparison-table td:first-child {
+    font-size: 0.75rem;
+  }
+  
+  /* Social Proof - Mobile */
+  .stats-bar {
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 20px;
+  }
+  
+  .stat-item .stat-value {
+    font-size: 2rem;
+  }
+  
+  .stat-item .stat-label {
+    font-size: 0.8125rem;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .testimonial-card {
+    padding: 20px;
+  }
+  
+  .testimonial-quote {
+    font-size: 0.9375rem;
+  }
+  
+  .privacy-badge {
+    padding: 16px 20px;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  /* Final CTA - Mobile */
+  .cta-content {
+    max-width: 100%;
+  }
+  
+  .cta-scarcity {
+    font-size: 0.8125rem;
+    padding: 6px 12px;
+  }
+  
+  .cta-description {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+  
+  .cta-benefits {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .cta-form,
+  .waitlist-form {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  
+  .cta-form input,
+  .waitlist-input {
+    width: 100%;
+    padding: 12px 16px;
+  }
+  
+  .cta-form .btn,
+  .waitlist-form .btn {
+    width: 100%;
+  }
+  
+  /* Footer - Mobile */
+  .footer {
+    padding: 32px 20px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .footer-left {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+/* ========================================
+   Responsive - Extra Small Screens
+   ======================================== */
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  
+  .hero {
+    padding: 80px 16px 40px;
+  }
+  
+  .hero-title {
+    min-height: 60px;
+  }
   
   .problem-section,
   .solution-section,
   .social-proof-section,
   .final-cta-section {
-    padding: 80px 24px;
+    padding: 48px 16px;
   }
   
-  .problem-flow,
-  .capabilities-grid,
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  /* Comparison grid - 1 column on mobile */
-  .problem-section .grid {
-    grid-template-columns: 1fr !important;
+  .comparison-table th:not(:first-child):not(:last-child),
+  .comparison-table td:not(:first-child):not(:last-child) {
+    display: none;
   }
   
   .stats-bar {
-    flex-direction: column;
-    gap: 32px;
+    padding: 24px 16px;
   }
   
-  .cta-benefits {
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .cta-form {
-    flex-direction: column;
-  }
-  
-  .footer-content {
-    flex-direction: column;
-    gap: 24px;
+  .stat-item .stat-value {
+    font-size: 1.75rem;
   }
 }
