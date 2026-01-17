@@ -479,6 +479,8 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
 
 .section-header {
   max-width: 800px;
+  margin-left: 0;
+  margin-right: auto;
   margin-bottom: 64px;
 }
 
@@ -511,6 +513,11 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
 .problem-section > * {
   max-width: 1400px;
   margin-left: auto;
+  margin-right: auto;
+}
+
+.problem-section .section-header {
+  margin-left: 0;
   margin-right: auto;
 }
 
@@ -615,11 +622,17 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
   margin-right: auto;
 }
 
+.solution-section .section-header {
+  margin-left: 0;
+  margin-right: auto;
+}
+
 .capabilities-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   margin-bottom: 80px;
+  align-items: stretch;
 }
 
 .capability-card {
@@ -628,6 +641,9 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
   border: 1px solid var(--border);
   border-radius: 8px;
   transition: border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .capability-card:hover {
@@ -649,6 +665,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 16px;
+  flex: 1;
 }
 
 .capability-example {
