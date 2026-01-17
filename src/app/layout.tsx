@@ -14,7 +14,7 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
-  title: "NogicOS - The AI that works where you work",
+  title: "NogicOS - Get work done across tabs, files, and apps",
   description:
     "Browser. Files. Desktop. One AI, complete context. NogicOS is the first AI that works across your browser, files, and desktop as one unified workspace.",
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "NogicOS Team" }],
   openGraph: {
-    title: "NogicOS - The AI that works where you work",
+    title: "NogicOS - Get work done across tabs, files, and apps",
     description:
       "Browser. Files. Desktop. One AI, complete context. The first AI that sees your complete work environment.",
     type: "website",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "NogicOS - The AI that works where you work",
+    title: "NogicOS - Get work done across tabs, files, and apps",
     description:
       "Browser. Files. Desktop. One AI, complete context. The first AI that sees your complete work environment.",
   },

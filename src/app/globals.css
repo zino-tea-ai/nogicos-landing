@@ -216,6 +216,73 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
   margin: 0 auto;
 }
 
+/* 居中布局 - 顶级视觉 */
+.hero.hero-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 60px;
+  max-width: 100%;
+  padding: 140px 48px 100px;
+}
+
+.hero-centered .hero-content {
+  max-width: 900px;
+  justify-self: center;
+}
+
+.hero-centered .hero-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.hero-centered .hero-title-highlight {
+  color: var(--text-secondary);
+}
+
+.hero-title-line {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hero-centered .hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.hero-centered .hero-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-centered .btn-large {
+  padding: 18px 48px;
+  font-size: 1.0625rem;
+}
+
+.hero-note {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.hero-centered .hero-demo {
+  justify-self: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.hero-demo-centered .demo-window {
+  margin: 0 auto;
+}
+
 .hero-content {
   max-width: 600px;
   justify-self: end;
@@ -258,6 +325,20 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 8px;
+}
+
+/* 轻量化能力展示 */
+.hero-capabilities {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-capabilities .separator {
+  opacity: 0.4;
 }
 
 .stat {
@@ -482,6 +563,17 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
   margin-left: 0;
   margin-right: auto;
   margin-bottom: 64px;
+}
+
+/* Section vertical rhythm */
+.section-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.section-stack .section-header {
+  margin-bottom: 0;
 }
 
 .section-eyebrow {

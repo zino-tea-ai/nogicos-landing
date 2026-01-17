@@ -1,102 +1,41 @@
 "use client";
 
-import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect, useRef } from "react";
-
-// 核心差异化 - 统一三层上下文
-const differentiators = [
-  "the first AI to see your browser, files, and desktop",
-  "complete context without copy-paste",
-  "direct action, not just suggestions",
-  "local-first, your data stays private",
-];
+import { motion } from "motion/react";
 
 export function Hero() {
-  const [currentPain, setCurrentPain] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    if (!isPaused) {
-      intervalRef.current = setInterval(() => {
-        setCurrentPain((prev) => (prev + 1) % differentiators.length);
-      }, 5000); // 5秒切换
-    }
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [isPaused]);
-
   return (
-    <section className="hero">
+    <section className="hero hero-centered">
       <motion.div
         className="hero-content"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        {/* 痛点驱动的标题 */}
-        <p className="hero-eyebrow">The AI that works where you work</p>
-        
-        <h1 
-          className="hero-title"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={currentPain}
-              className="pain-text"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
-              {differentiators[currentPain]}
-            </motion.span>
-          </AnimatePresence>
+        {/* 主标题 - 大气居中 */}
+        <h1 className="hero-title">
+          Get work done across
+          <br />
+          <span className="hero-title-line">tabs, files, and apps.</span>
         </h1>
 
+        {/* 副标题 */}
         <p className="hero-subtitle">
-          NogicOS is the first AI that sees your browser, files, and desktop as one.{" "}
-          <strong>Complete context. Direct action. No middleman.</strong>
+          The workspace AI that connects your tools and completes workflows end-to-end—locally, with full context.
         </p>
 
-        {/* 三大核心能力 */}
-        <div className="hero-stats">
-          <div className="stat">
-            <span className="stat-icon">◎</span>
-            <span className="stat-label">Browser</span>
-          </div>
-          <div className="stat-plus">+</div>
-          <div className="stat">
-            <span className="stat-icon">▢</span>
-            <span className="stat-label">Files</span>
-          </div>
-          <div className="stat-plus">+</div>
-          <div className="stat">
-            <span className="stat-icon">◇</span>
-            <span className="stat-label">Desktop</span>
-          </div>
-        </div>
-
-        {/* CTA 区域 - 加紧迫感 */}
+        {/* CTA 区域 */}
         <div className="hero-cta">
           <motion.button
-            className="btn btn-primary"
+            className="btn btn-primary btn-large"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" })}
           >
             Request Early Access
           </motion.button>
-          <p className="hero-cta-note">
-            <span className="pulse-dot" /> 
-            <strong>Only 50 spots left</strong> in private beta
-          </p>
+          <p className="hero-note">Free during beta · No credit card required</p>
         </div>
 
-        {/* 信任徽章 */}
         <div className="hero-trust">
           <span>Trusted by teams at</span>
           <div className="trust-logos">
@@ -109,9 +48,9 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* Demo 预览 - 更真实 */}
+      {/* Demo 预览 - 居中展示 */}
       <motion.div
-        className="hero-demo"
+        className="hero-demo hero-demo-centered"
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -127,15 +66,10 @@ export function Hero() {
             </div>
           </div>
           <div className="demo-content">
-            {/* 模拟对话 - 更真实的场景 */}
             <div className="demo-message user">
               <p>"Find all competitor pricing pages and summarize them in a doc"</p>
             </div>
             <div className="demo-message ai">
-              <div className="demo-thinking">
-                <span className="thinking-dot" />
-                <span>Working on it...</span>
-              </div>
               <div className="demo-actions">
                 <div className="action done">
                   <span className="action-check">✓</span>

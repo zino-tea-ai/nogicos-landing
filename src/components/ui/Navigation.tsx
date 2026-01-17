@@ -20,11 +20,13 @@ export function Navigation() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* Logo */}
+      {/* Logo - 等角立方体，代表多维工作空间 */}
       <Link href="/" className="nav-logo">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" strokeWidth="1.5"/>
-          <path d="M8 12h8M12 8v8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+          <path d="M12 12L3 7" stroke="currentColor" strokeWidth="1.5"/>
+          <path d="M12 12L21 7" stroke="currentColor" strokeWidth="1.5"/>
+          <path d="M12 12V22" stroke="currentColor" strokeWidth="1.5"/>
         </svg>
         <span>NogicOS</span>
       </Link>

@@ -31,49 +31,51 @@ export function Features() {
 
   return (
     <section id="features" className="solution-section" ref={ref}>
-      <motion.div
-        className="section-header"
-        initial={{ opacity: 0, y: 40 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <h2>
-          Built different. <span className="highlight">Works better.</span>
-        </h2>
-        <p className="section-description">
-          Three principles that make NogicOS uniquely powerful.
-        </p>
-      </motion.div>
+      <div className="container section-stack">
+        <motion.div
+          className="section-header"
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2>
+            Built different. <span className="highlight">Works better.</span>
+          </h2>
+          <p className="section-description">
+            Three principles that make NogicOS uniquely powerful.
+          </p>
+        </motion.div>
 
-      {/* Feature Cards - 使用设计系统的 capability-card */}
-      <div className="capabilities-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-        {features.map((feature, i) => (
-          <motion.div
-            key={feature.title}
-            className="capability-card"
-            initial={{ opacity: 0, y: 40 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1 + i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {/* Icon - 使用设计系统规范 */}
-            <span className="capability-icon">{feature.icon}</span>
-            
-            {/* Title */}
-            <h3>{feature.title}</h3>
-            
-            {/* Subtitle */}
-            <p style={{ 
-              fontSize: "0.875rem", 
-              color: "var(--text-muted)", 
-              marginBottom: 12 
-            }}>
-              {feature.subtitle}
-            </p>
-            
-            {/* Description */}
-            <p>{feature.description}</p>
-          </motion.div>
-        ))}
+        {/* Feature Cards - 使用设计系统的 capability-card */}
+        <div className="capabilities-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+          {features.map((feature, i) => (
+            <motion.div
+              key={feature.title}
+              className="capability-card"
+              initial={{ opacity: 0, y: 40 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1 + i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {/* Icon - 使用设计系统规范 */}
+              <span className="capability-icon">{feature.icon}</span>
+              
+              {/* Title */}
+              <h3>{feature.title}</h3>
+              
+              {/* Subtitle */}
+              <p style={{ 
+                fontSize: "0.875rem", 
+                color: "var(--text-muted)", 
+                marginBottom: 12 
+              }}>
+                {feature.subtitle}
+              </p>
+              
+              {/* Description */}
+              <p>{feature.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

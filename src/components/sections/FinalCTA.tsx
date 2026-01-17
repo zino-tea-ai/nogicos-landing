@@ -7,35 +7,37 @@ export function FinalCTA() {
 
   return (
     <section id="waitlist" className="final-cta-section">
-      <FadeIn className="cta-content" amount={0.5} duration={0.8}>
-        {/* 稀缺性 */}
-        <div className="cta-scarcity">
-          <span className="scarcity-dot" />
-          <span>
-            Only <strong>{waitlistCount.count}</strong> {waitlistCount.suffix}
-          </span>
-        </div>
+      <div className="container section-stack">
+        <FadeIn className="cta-content" amount={0.5} duration={0.8}>
+          {/* 稀缺性 */}
+          <div className="cta-scarcity">
+            <span className="scarcity-dot" />
+            <span>
+              Only <strong>{waitlistCount.count}</strong> {waitlistCount.suffix}
+            </span>
+          </div>
 
-        <h2>
-          {title.split(" ").slice(0, 2).join(" ")}
-          <br />
-          {title.split(" ").slice(2).join(" ")}
-        </h2>
-        <p className="cta-description">{description}</p>
+          <h2>
+            {title.split(" ").slice(0, 2).join(" ")}
+            <br />
+            {title.split(" ").slice(2).join(" ")}
+          </h2>
+          <p className="cta-description">{description}</p>
 
-        {/* 表单 */}
-        <WaitlistForm />
+          {/* 表单 */}
+          <WaitlistForm />
 
-        {/* 权益 */}
-        <div className="cta-benefits">
-          {benefits.map((benefit, i) => (
-            <div key={i} className="benefit">
-              <span>{benefit.icon}</span>
-              <span>{benefit.text}</span>
-            </div>
-          ))}
-        </div>
-      </FadeIn>
+          {/* 权益 */}
+          <div className="cta-benefits">
+            {benefits.map((benefit, i) => (
+              <div key={i} className="benefit">
+                <span>{benefit.icon}</span>
+                <span>{benefit.text}</span>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+      </div>
     </section>
   );
 }
