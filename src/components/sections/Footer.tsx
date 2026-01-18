@@ -8,8 +8,8 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-left">
-          <Link href="/" className="nav-logo text-only">
-            <span className="logo-n">N</span>ogicOS
+          <Link href="/" className="nav-logo">
+            NogicOS
           </Link>
           <div className="footer-links">
             {links.social.map((link) => (

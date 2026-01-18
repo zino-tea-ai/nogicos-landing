@@ -20,9 +20,8 @@ export function Navigation() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* Logo - 纯文字，N 加粗作为视觉锚点 */}
-      <Link href="/" className="nav-logo text-only">
-        <span className="logo-n">N</span>ogicOS
+      <Link href="/" className="nav-logo">
+        NogicOS
       </Link>
 
       {/* Navigation Links */}
