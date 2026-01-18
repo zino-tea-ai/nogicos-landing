@@ -8,7 +8,7 @@ import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <>
+    <div className="page">
       <Navigation />
       <Hero />
       <Solution />
@@ -16,6 +16,6 @@ export default function Home() {
       <UseCases />
       <FinalCTA />
       <Footer />
-    </>
+    </div>
   );
 }

@@ -6,25 +6,31 @@ export function Solution() {
 
   return (
     <section id="solution" className="solution-section">
-      <div className="container section-stack">
+      <div className="container section-stack section-layout">
         <FadeIn className="section-header" amount={0.5}>
           <p className="section-eyebrow">{eyebrow}</p>
           <h2>{title}</h2>
           {description ? <p className="section-description">{description}</p> : null}
         </FadeIn>
 
-        <StaggerList className="capabilities-grid" staggerDelay={0.1}>
-          {capabilities.map((cap, i) => (
-            <div key={i} className="capability-card">
-              <span className="capability-icon">{cap.icon}</span>
-              <h3>{cap.title}</h3>
-              <p>{cap.description}</p>
-              <div className="capability-example">
-                <code>{cap.example}</code>
+        <div className="section-body">
+          <StaggerList
+            className="capabilities-grid"
+            itemClassName="capability-card-wrap"
+            staggerDelay={0.1}
+          >
+            {capabilities.map((cap, i) => (
+              <div key={i} className="capability-card">
+                <span className="capability-icon">{cap.icon}</span>
+                <h3>{cap.title}</h3>
+                <p>{cap.description}</p>
+                <div className="capability-example">
+                  <code>{cap.example}</code>
+                </div>
               </div>
-            </div>
-          ))}
-        </StaggerList>
+            ))}
+          </StaggerList>
+        </div>
 
         {/* Comparison table removed for standard homepage structure */}
       </div>
