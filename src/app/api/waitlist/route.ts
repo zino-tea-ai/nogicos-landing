@@ -1,111 +1,85 @@
 import { NextRequest, NextResponse } from "next/server";
-import { readFile, writeFile, mkdir } from "fs/promises";
-import { join } from "path";
+import { createClient } from "@supabase/supabase-js";
 
-interface WaitlistEntry {
-  email: string;
-  timestamp: string;
-  source: string;
-}
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const DATA_DIR = join(process.cwd(), "data");
-const WAITLIST_FILE = join(DATA_DIR, "waitlist.json");
-
-async function ensureDataDir() {
-  try {
-    await mkdir(DATA_DIR, { recursive: true });
-  } catch {
-    // Directory may already exist
+const getSupabaseClient = () => {
+  if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+    throw new Error("Missing SUPABASE_URL or SUPABASE_ANON_KEY");
   }
-}
-
-async function getWaitlist(): Promise<WaitlistEntry[]> {
-  try {
-    const data = await readFile(WAITLIST_FILE, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-async function saveWaitlist(entries: WaitlistEntry[]): Promise<void> {
-  await ensureDataDir();
-  await writeFile(WAITLIST_FILE, JSON.stringify(entries, null, 2));
-}
+  return createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    auth: { persistSession: false },
+  });
+};
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { email } = body;
+    const { email, source } = body ?? {};
 
     // Validate email
     if (!email || typeof email !== "string") {
       return NextResponse.json(
-        { success: false, message: "Email is required" },
+        { success: false, message: "Email is required." },
         { status: 400 }
       );
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    const normalizedEmail = email.trim().toLowerCase();
+    if (!emailRegex.test(normalizedEmail)) {
       return NextResponse.json(
-        { success: false, message: "Invalid email format" },
+        { success: false, message: "Please enter a valid email address." },
         { status: 400 }
       );
     }
 
-    // Get existing waitlist
-    const waitlist = await getWaitlist();
+    const supabase = getSupabaseClient();
+    const entrySource = typeof source === "string" ? source : "landing-page";
+    const { error } = await supabase.from("waitlist").insert({
+      email: normalizedEmail,
+      source: entrySource,
+    });
 
-    // Check for duplicate
-    if (waitlist.some((entry) => entry.email.toLowerCase() === email.toLowerCase())) {
+    if (error) {
+      if (error.code === "23505") {
+        return NextResponse.json(
+          { success: true, message: "You're already on the list!" },
+          { status: 200 }
+        );
+      }
+      console.error("Waitlist insert error:", error);
       return NextResponse.json(
-        { success: true, message: "You're already on the list!" },
-        { status: 200 }
+        { success: false, message: "Something went wrong. Please try again." },
+        { status: 500 }
       );
     }
-
-    // Add new entry
-    const newEntry: WaitlistEntry = {
-      email: email.toLowerCase(),
-      timestamp: new Date().toISOString(),
-      source: "landing-page",
-    };
-
-    waitlist.push(newEntry);
-    await saveWaitlist(waitlist);
 
     return NextResponse.json(
-      {
-        success: true,
-        message: "Successfully joined the waitlist!",
-        count: waitlist.length,
-      },
+      { success: true, message: "Successfully joined the waitlist!" },
       { status: 201 }
     );
   } catch (error) {
     console.error("Waitlist API error:", error);
+    if (error instanceof Error && error.message.includes("SUPABASE_")) {
+      return NextResponse.json(
+        { success: false, message: "Waitlist is not configured yet." },
+        { status: 500 }
+      );
+    }
     return NextResponse.json(
-      { success: false, message: "Internal server error" },
+      { success: false, message: "Internal server error." },
       { status: 500 }
     );
   }
 }
 
 export async function GET() {
-  try {
-    const waitlist = await getWaitlist();
-    return NextResponse.json({
-      success: true,
-      count: waitlist.length,
-    });
-  } catch (error) {
-    console.error("Waitlist API error:", error);
-    return NextResponse.json(
-      { success: false, message: "Internal server error" },
-      { status: 500 }
-    );
-  }
+  return NextResponse.json({
+    success: true,
+    message: "Waitlist endpoint is online.",
+  });
 }
 
 

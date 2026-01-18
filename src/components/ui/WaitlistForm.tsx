@@ -11,36 +11,56 @@ interface WaitlistFormProps {
   onSuccess?: () => void;
 }
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export function WaitlistForm({
   variant = "default",
-  placeholder = "your@email.com",
-  buttonText = "Get Early Access",
+  placeholder = "Enter your email",
+  buttonText = "Join the waitlist",
   onSuccess,
 }: WaitlistFormProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    const normalizedEmail = email.trim();
+    setErrorMessage(null);
+
+    if (!normalizedEmail) {
+      setStatus("error");
+      setErrorMessage("Please enter your email address.");
+      return;
+    }
+
+    if (!emailRegex.test(normalizedEmail)) {
+      setStatus("error");
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
 
     setStatus("loading");
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email: normalizedEmail }),
       });
 
       if (res.ok) {
         setStatus("success");
         setEmail("");
+        setErrorMessage(null);
         onSuccess?.();
       } else {
+        const data = await res.json().catch(() => null);
         setStatus("error");
+        setErrorMessage(data?.message || "Something went wrong. Please try again.");
       }
     } catch {
       setStatus("error");
+      setErrorMessage("Something went wrong. Please try again.");
     }
   };
 
@@ -61,6 +81,7 @@ export function WaitlistForm({
     <form
       onSubmit={handleSubmit}
       className={`waitlist-form ${variant === "compact" ? "waitlist-form--compact" : ""}`}
+      noValidate
     >
       <input
         type="email"
@@ -68,7 +89,6 @@ export function WaitlistForm({
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         disabled={status === "loading"}
-        required
         className="waitlist-input"
       />
       <motion.button
@@ -80,8 +100,8 @@ export function WaitlistForm({
       >
         {status === "loading" ? "Joining..." : buttonText}
       </motion.button>
-      {status === "error" && (
-        <p className="form-error">Something went wrong. Please try again.</p>
+      {status === "error" && errorMessage && (
+        <p className="form-error">{errorMessage}</p>
       )}
     </form>
   );

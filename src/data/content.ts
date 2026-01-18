@@ -167,9 +167,9 @@ export const socialProofContent = {
 
 // Final CTA Section
 export const ctaContent = {
-  title: "Stop copying your work into AI.",
+  title: "Bring AI into your workflow.",
   description:
-    "Join the waitlist and let it operate inside your real workspace.",
+    "Join the waitlist and see it work inside your real workspace.",
   footnotes: ["Runs locally.", "No uploads."],
   form: {
     placeholder: "Enter your email",
