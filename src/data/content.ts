@@ -52,30 +52,26 @@ export const solutionContent = {
     {
       icon: "◎",
       title: "Complete Browser Context",
-      description:
-        "Work on real webpages, not pasted text. Click elements, fill forms, and extract information directly from what is already open.",
-      example: "Research competitors on LinkedIn and save their profiles.",
+      description: "Work directly with live webpages.",
+      example: "Pull key details from these pages and write a brief.",
     },
     {
       icon: "▢",
       title: "Private File Access",
-      description:
-        "Read and write local documents, spreadsheets, and PDFs. No uploads are required. Your files stay on your machine.",
-      example: "Summarize all PDFs in the Downloads folder.",
+      description: "Read and write local files. No uploads.",
+      example: "Summarize the PDFs in this folder.",
     },
     {
       icon: "◇",
       title: "Desktop Context",
-      description:
-        "Use what is visible on screen across apps and windows. Tasks continue inside the tools you already use.",
-      example: "Identify the error shown in a Figma file.",
+      description: "Use what is on screen across apps and windows.",
+      example: "Explain what is happening in this window.",
     },
     {
       icon: "→",
       title: "Direct Execution",
-      description:
-        "Do the work instead of offering suggestions. Type, click, create files, and send messages until the task is finished.",
-      example: "Fill out a form using an existing resume.",
+      description: "Take actions end to end inside your workspace.",
+      example: "Complete this form using the details from my document.",
     },
   ],
 } as const;
@@ -92,7 +88,12 @@ export const howItWorksContent = {
       description: "It determines the required steps based on the current working context.",
     },
     {
-      title: "Step 3. Execute",
+      title: "Step 3. Stay connected",
+      description:
+        "It remains attached to the workflow so state, progress, and follow-up actions stay connected.",
+    },
+    {
+      title: "Step 4. Execute",
       description:
         "Actions are performed across the browser, local files, and desktop apps until completion.",
     },
@@ -103,24 +104,20 @@ export const useCasesContent = {
   title: "Use Cases",
   cases: [
     {
-      title: "Research and Analysis",
-      description: "Collect information across multiple tabs and compile structured notes or reports.",
+      title: "Research Briefs",
+      description: "Turn scattered sources into a clean competitive brief.",
     },
     {
-      title: "Document Workflows",
-      description: "Read, edit, move, and reorganize files without manual file handling.",
+      title: "Reports and Summaries",
+      description: "Produce structured writeups from the work you already have open.",
     },
     {
-      title: "Cross App Work",
-      description: "Complete tasks that span the browser, local files, and desktop applications.",
+      title: "Document Updates",
+      description: "Create, edit, and organize files as part of one task.",
     },
     {
-      title: "Form Filling and Data Transfer",
-      description: "Move information between websites and documents without copying and pasting.",
-    },
-    {
-      title: "Issue Inspection",
-      description: "Identify on screen errors and help resolve them inside the relevant tools.",
+      title: "Operational Tasks",
+      description: "Complete forms, submissions, and follow ups inside your workflow.",
     },
   ],
 } as const;
