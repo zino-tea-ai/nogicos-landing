@@ -33,9 +33,10 @@ export function Navigation() {
 
       {/* Navigation Links */}
       <div className="nav-links">
-        <Link href="#problem" className="nav-link">Problem</Link>
         <Link href="#solution" className="nav-link">Solution</Link>
-        <Link href="#waitlist" className="nav-link">Get Access</Link>
+        <Link href="#how-it-works" className="nav-link">How It Works</Link>
+        <Link href="#use-cases" className="nav-link">Use Cases</Link>
+        <Link href="#waitlist" className="nav-link">Join the waitlist</Link>
       </div>
 
       {/* CTA */}
@@ -45,7 +46,7 @@ export function Navigation() {
         whileTap={{ scale: 0.98 }}
         onClick={() => document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" })}
       >
-        Join Waitlist
+        Join the waitlist
       </motion.button>
     </motion.nav>
   );

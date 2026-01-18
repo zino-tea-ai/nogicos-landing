@@ -15,12 +15,12 @@ export function Hero() {
         <h1 className="hero-title">
           Get work done across
           <br />
-          <span className="hero-title-line">tabs, files, and apps.</span>
+          <span className="hero-title-line">tabs, apps, and files.</span>
         </h1>
 
         {/* 副标题 */}
         <p className="hero-subtitle">
-          The workspace AI that connects your tools and completes workflows end-to-end—locally, with full context.
+          A workspace AI that understands your working context and executes tasks directly.
         </p>
 
         {/* CTA 区域 */}
@@ -31,20 +31,8 @@ export function Hero() {
             whileTap={{ scale: 0.98 }}
             onClick={() => document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" })}
           >
-            Request Early Access
+            Join the waitlist
           </motion.button>
-          <p className="hero-note">Free during beta · No credit card required</p>
-        </div>
-
-        <div className="hero-trust">
-          <span>Trusted by teams at</span>
-          <div className="trust-logos">
-            <span>YC Founders</span>
-            <span>•</span>
-            <span>Stanford</span>
-            <span>•</span>
-            <span>Remote Teams</span>
-          </div>
         </div>
       </motion.div>
 
@@ -67,7 +55,7 @@ export function Hero() {
           </div>
           <div className="demo-content">
             <div className="demo-message user">
-              <p>"Find all competitor pricing pages and summarize them in a doc"</p>
+              <p>Task: Research competitors on LinkedIn and save their profiles.</p>
             </div>
             <div className="demo-message ai">
               <div className="demo-actions">

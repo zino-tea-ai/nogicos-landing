@@ -6,9 +6,9 @@
 
 export const siteConfig = {
   name: "NogicOS",
-  tagline: "The AI that works where you work",
+  tagline: "Get work done across tabs, apps, and files.",
   description:
-    "The first AI that sees your browser, files, and desktop as one unified workspace. Complete context. Direct action. Local-first.",
+    "A workspace AI that understands your working context and executes tasks directly.",
   url: "https://nogicos.com",
 } as const;
 
@@ -46,50 +46,83 @@ export const problemContent = {
 // Solution Section - 已移除"越用越快/学习"概念
 export const solutionContent = {
   eyebrow: "The Solution",
-  title: "AI that finally sees",
-  titleHighlight: "your whole workspace",
-  description:
-    "No more copying. No more explaining. Just tell NogicOS what you need, and watch it work across your browser, files, and desktop.",
+  title: "The Solution",
+  description: "",
   capabilities: [
     {
       icon: "◎",
       title: "Complete Browser Context",
       description:
-        "Navigate websites, click buttons, fill forms, extract data. Your AI sees what you see—no extensions needed.",
-      example: '"Research competitors on LinkedIn and save their profiles"',
+        "Work on real webpages, not pasted text. Click elements, fill forms, and extract information directly from what is already open.",
+      example: "Research competitors on LinkedIn and save their profiles.",
     },
     {
       icon: "▢",
-      title: "Full File Access",
+      title: "Private File Access",
       description:
-        "Docs, spreadsheets, downloads. Access everything without uploading anything. Your files stay on your machine.",
-      example: '"Summarize all PDFs in my Downloads folder"',
+        "Read and write local documents, spreadsheets, and PDFs. No uploads are required. Your files stay on your machine.",
+      example: "Summarize all PDFs in the Downloads folder.",
     },
     {
       icon: "◇",
-      title: "Desktop Awareness",
+      title: "Desktop Context",
       description:
-        "Any app, any window. Take screenshots, understand what's displayed, and help you with any application.",
-      example: '"What error is showing in this Figma file?"',
+        "Use what is visible on screen across apps and windows. Tasks continue inside the tools you already use.",
+      example: "Identify the error shown in a Figma file.",
     },
     {
       icon: "→",
       title: "Direct Execution",
       description:
-        "Not just suggestions—real actions. Click, type, create files, send messages. Your AI works in your environment.",
-      example: '"Fill out this form using my resume"',
+        "Do the work instead of offering suggestions. Type, click, create files, and send messages until the task is finished.",
+      example: "Fill out a form using an existing resume.",
     },
   ],
-  comparison: {
-    title: "How NogicOS compares",
-    headers: ["Capability", "ChatGPT", "Claude", "Cursor", "NogicOS"],
-    rows: [
-      ["See your browser", "no", "no", "no", "yes"],
-      ["Read local files", "no", "partial:Upload only", "partial:Code only", "yes:All files"],
-      ["Desktop action", "no", "no", "no", "yes"],
-      ["Privacy-first", "no:Cloud", "no:Cloud", "partial:Mixed", "yes:100% Local"],
-    ],
-  },
+} as const;
+
+export const howItWorksContent = {
+  title: "How It Works",
+  steps: [
+    {
+      title: "Step 1. Observe",
+      description: "The system reads what is open across your tabs, files, and applications.",
+    },
+    {
+      title: "Step 2. Plan",
+      description: "It determines the required steps based on the current working context.",
+    },
+    {
+      title: "Step 3. Execute",
+      description:
+        "Actions are performed across the browser, local files, and desktop apps until completion.",
+    },
+  ],
+} as const;
+
+export const useCasesContent = {
+  title: "Use Cases",
+  cases: [
+    {
+      title: "Research and Analysis",
+      description: "Collect information across multiple tabs and compile structured notes or reports.",
+    },
+    {
+      title: "Document Workflows",
+      description: "Read, edit, move, and reorganize files without manual file handling.",
+    },
+    {
+      title: "Cross App Work",
+      description: "Complete tasks that span the browser, local files, and desktop applications.",
+    },
+    {
+      title: "Form Filling and Data Transfer",
+      description: "Move information between websites and documents without copying and pasting.",
+    },
+    {
+      title: "Issue Inspection",
+      description: "Identify on screen errors and help resolve them inside the relevant tools.",
+    },
+  ],
 } as const;
 
 // Social Proof Section - 已移除"30x faster"和 learning 相关评论
@@ -134,25 +167,16 @@ export const socialProofContent = {
 
 // Final CTA Section
 export const ctaContent = {
-  eyebrow: "Limited Early Access",
-  title: "Stop being AI's human clipboard",
+  title: "Stop copying your work into AI.",
   description:
-    "Join the waitlist and be first to experience AI that actually sees your work.",
-  benefits: [
-    { icon: "✦", text: "Free during beta" },
-    { icon: "◎", text: "Priority onboarding" },
-    { icon: "◇", text: "Direct feedback channel" },
-  ],
+    "Join the waitlist and let it operate inside your real workspace.",
+  footnotes: ["Runs locally.", "No uploads."],
   form: {
     placeholder: "Enter your email",
-    button: "Get Early Access",
+    button: "Join the waitlist",
     loading: "Submitting...",
     success: "You're on the list!",
     error: "Something went wrong. Please try again.",
-  },
-  waitlistCount: {
-    count: 47,
-    suffix: "spots remaining this week",
   },
 } as const;
 

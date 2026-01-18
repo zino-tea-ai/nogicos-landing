@@ -1,9 +1,8 @@
 import { Navigation } from "@/components/ui/Navigation";
 import { Hero } from "@/components/sections/Hero";
-import { Comparison } from "@/components/sections/Comparison";
-import { Features } from "@/components/sections/Features";
+import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Solution } from "@/components/sections/Solution";
-import { SocialProof } from "@/components/sections/SocialProof";
+import { UseCases } from "@/components/sections/UseCases";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Footer } from "@/components/sections/Footer";
 
@@ -12,10 +11,9 @@ export default function Home() {
     <>
       <Navigation />
       <Hero />
-      <Comparison />
-      <Features />
       <Solution />
-      <SocialProof />
+      <HowItWorks />
+      <UseCases />
       <FinalCTA />
       <Footer />
     </>
