@@ -140,6 +140,15 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 500; }
   font-size: 1.125rem;
 }
 
+.nav-logo.text-only {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.nav-logo .logo-n {
+  font-weight: 700;
+}
+
 .nav-links {
   display: flex;
   gap: 32px;
